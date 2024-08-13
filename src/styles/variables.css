@@ -1,0 +1,10 @@
+:root {
+  --main-black: #101828;
+  --main-white: #fff;
+  --button-basic: #e44848;
+  --button-hover: #d84343;
+  --icon: #ffc531;
+  --input-bg: #f7f7f7;
+  --secondary-white: #f2f4f7;
+  --transition-setting: 150ms ease-in;
+}
