@@ -3,7 +3,16 @@ import { calculateRating } from '../helpers/calculateRating';
 import css from './CatalogCard.module.css';
 
 const CatalogCard = ({
-  ad: { gallery, reviews, location, description, adults, details },
+  ad: {
+    gallery,
+    reviews,
+    location,
+    description,
+    adults,
+    transmission,
+    engine,
+    details,
+  },
 }) => {
   const reviewsQuantity = reviews.length;
   const rating = calculateRating(reviews);
@@ -22,7 +31,12 @@ const CatalogCard = ({
             <p>{location}</p>
           </section>
           <p className={css.description}>{description}</p>
-          <CategoriesList details={details} />
+          <CategoriesList
+            details={details}
+            adults={adults}
+            transmission={transmission}
+            engine={engine}
+          />
         </div>
       </div>
     </>
