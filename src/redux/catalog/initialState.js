@@ -1,5 +1,5 @@
 export const catalogInitialState = {
-    adverts: null,
+    adverts: [],
     isLoading: false,
     error: null,
     // isNextPage: true,

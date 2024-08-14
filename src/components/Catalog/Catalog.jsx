@@ -1,32 +1,29 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectAdverts,
+  selectError,
+  selectIsLoading,
+} from '../../redux/selectors';
 import { fetchCatalog } from '../../redux/catalog/operations';
-import { selectAdverts } from '../../redux/selectors';
 import CatalogCard from '../CatalogCard/CatalogCard';
+import CatalogList from '../CatalogList/CatalogList';
 
 const Catalog = () => {
   const dispatch = useDispatch();
+  const adverts = useSelector(selectAdverts);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchCatalog());
   }, [dispatch]);
 
-  const adverts = useSelector(selectAdverts);
-  const isAdverts = adverts && adverts.length > 0;
-
   return (
     <>
-      <div>
-        {isAdverts &&
-          adverts.map(ad => {
-            <li key={ad._id}>
-              <CatalogCard
-                ad={ad}
-                // liked={favorites.some(item => item._id === camper._id)}
-              />
-            </li>;
-          })}
-      </div>
+      {isLoading && <p>Loading...</p>}
+      {isError && <p>Error</p>}
+      {adverts.length > 0 && <CatalogList adverts={adverts} />}
     </>
   );
 };

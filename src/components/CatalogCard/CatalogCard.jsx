@@ -1,9 +1,29 @@
-const CatalogCard = ({ gallery }) => {
+import CategoriesList from '../CategoriesList/CategoriesList';
+import { calculateRating } from '../helpers/calculateRating';
+import css from './CatalogCard.module.css';
+
+const CatalogCard = ({
+  ad: { gallery, reviews, location, description, adults, details },
+}) => {
+  const reviewsQuantity = reviews.length;
+  const rating = calculateRating(reviews);
+
   return (
     <>
-      <div>
-        <img src={gallery[0]} />
-        <p>aa</p>
+      <div className={css.catalogCard}>
+        <div className={css.imgCard}>
+          <img className={css.campImg} src={gallery[0]} />
+        </div>
+
+        <div>
+          <h2></h2>
+          <section>
+            <p>{`${rating}(${reviewsQuantity} Reviews)`}</p>
+            <p>{location}</p>
+          </section>
+          <p className={css.description}>{description}</p>
+          <CategoriesList details={details} />
+        </div>
       </div>
     </>
   );
