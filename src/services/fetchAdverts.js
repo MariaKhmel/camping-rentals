@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://65d1655fab7beba3d5e452c6.mockapi.io/materials";
+const BASE_URL = "https://65d1655fab7beba3d5e452c6.mockapi.io";
 
 const instance = axios.create({
     baseURL: BASE_URL,
@@ -9,8 +9,8 @@ const instance = axios.create({
     },
 });
 
-export const fetchAdverts = () => {
-    const adverts = instance.get('/materials');
+export const fetchAdverts = async () => {
+    const adverts = await instance.get('/materials?page=1');
     return adverts;
 }
 

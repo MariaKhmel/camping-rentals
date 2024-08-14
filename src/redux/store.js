@@ -10,18 +10,24 @@ import {
     REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { catalogReducer } from "./catalog/catalogSlice";
 
-//import 2 reducers
 
-const favoritesPersistConfig = {
-    key: "favorites",
-    storage,
-    whitelist: ["data"],
-};
+
+// const favoritesPersistConfig = {
+//     key: "favorites",
+//     storage,
+//     whitelist: ["data"],
+// };
+
+// const persistedFavoritesReducer = persistReducer(
+//     favoritesPersistConfig,
+//     favoritesReducer
+// );
 
 export const store = configureStore({
     reducer: {
-        campers: 'cr',
+        campers: catalogReducer,
         favorites: 'frr',
     },
 
