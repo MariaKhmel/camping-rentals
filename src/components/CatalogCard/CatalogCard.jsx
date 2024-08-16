@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import CategoriesList from '../CategoriesList/CategoriesList';
 import { calculateRating } from '../helpers/calculateRating';
 import css from './CatalogCard.module.css';
+import Modal from '../Modal/Modal';
+import ReviewsRating from '../ReviewsRating/ReviewsRating';
+import Location from '../Location/Location';
 
 const CatalogCard = ({
   ad: {
@@ -16,18 +20,18 @@ const CatalogCard = ({
     price,
   },
 }) => {
-  const reviewsQuantity = reviews.length;
-  const rating = calculateRating(reviews);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
 
   return (
     <>
       <div className={css.catalogCard}>
         <div className={css.imgCard}>
-          <img className={css.campImg} src={gallery[0]} />
+          <img className={css.campImg} src={gallery[0]} alt="capm image" />
         </div>
 
         <div className={css.cardDescr}>
-          <div className={css.test}>
+          <div className={css.saleBlock}>
             <h2>{name}</h2>
             <div>
               <p>{`${price}.00`}</p>
@@ -35,8 +39,8 @@ const CatalogCard = ({
             </div>
           </div>
           <div>
-            <p>{`${rating}(${reviewsQuantity} Reviews)`}</p>
-            <p>{location}</p>
+            <ReviewsRating reviews={reviews} />
+            <Location location={location} />
           </div>
           <p className={css.description}>{description}</p>
           <CategoriesList
@@ -45,9 +49,22 @@ const CatalogCard = ({
             transmission={transmission}
             engine={engine}
           />
-          <button type="button">Show more</button>
+          <button type="button" onClick={openModal}>
+            Show more
+          </button>
         </div>
       </div>
+
+      {isModalOpen && (
+        <Modal
+          name={name}
+          reviews={reviews}
+          location={location}
+          price={price}
+          gallery={gallery}
+          description={description}
+        />
+      )}
     </>
   );
 };

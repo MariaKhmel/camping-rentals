@@ -1,5 +1,3 @@
-import { selectAdverts } from '../../redux/selectors';
-import { useSelector } from 'react-redux';
 import CatalogCard from '../CatalogCard/CatalogCard';
 
 const CatalogList = ({ adverts }) => {
@@ -7,7 +5,6 @@ const CatalogList = ({ adverts }) => {
   return (
     <>
       <div>
-        <p>dddddddddd</p>
         <ul>
           {adverts.map(ad => (
             <li key={ad._id}>
