@@ -4,6 +4,7 @@ import css from './CatalogCard.module.css';
 
 const CatalogCard = ({
   ad: {
+    name,
     gallery,
     reviews,
     location,
@@ -12,6 +13,7 @@ const CatalogCard = ({
     transmission,
     engine,
     details,
+    price,
   },
 }) => {
   const reviewsQuantity = reviews.length;
@@ -24,12 +26,18 @@ const CatalogCard = ({
           <img className={css.campImg} src={gallery[0]} />
         </div>
 
-        <div>
-          <h2></h2>
-          <section>
+        <div className={css.cardDescr}>
+          <div className={css.test}>
+            <h2>{name}</h2>
+            <div>
+              <p>{`${price}.00`}</p>
+              <button type="button">heart svg</button>
+            </div>
+          </div>
+          <div>
             <p>{`${rating}(${reviewsQuantity} Reviews)`}</p>
             <p>{location}</p>
-          </section>
+          </div>
           <p className={css.description}>{description}</p>
           <CategoriesList
             details={details}
@@ -37,6 +45,7 @@ const CatalogCard = ({
             transmission={transmission}
             engine={engine}
           />
+          <button type="button">Show more</button>
         </div>
       </div>
     </>

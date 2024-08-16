@@ -1,31 +1,53 @@
-const CategoriesList = ({ details }) => {
+import css from './CategoriesList.module.css';
+import '../../styles/index.css';
+
+const CategoriesList = ({
+  details: { beds, kitchen, airConditioner },
+  adults,
+  transmission,
+  engine,
+}) => {
   return (
     <>
       <div>
-        <ul>
+        <ul className={css.categoriesList}>
           <li>
-            <svg></svg>
-            <span>adults</span>
+            <button className={css.categoryBtn}>
+              <svg className={css.categoryIcon}></svg>
+              <span>{`${adults} adults`}</span>
+            </button>
           </li>
           <li>
-            <svg></svg>
-            <span>Automatic</span>
+            <button className={css.categoryBtn}>
+              <svg className={css.categoryIcon}></svg>
+
+              <span className="capitalize">{transmission}</span>
+            </button>
           </li>
           <li>
-            <svg></svg>
-            <span>Petrol</span>
+            <button className={css.categoryBtn}>
+              <svg className={css.categoryIcon}></svg>
+              <span className="capitalize">{engine}</span>
+            </button>
           </li>
           <li>
-            <svg></svg>
-            <span>Kitchen</span>
+            <button className={css.categoryBtn}>
+              <svg className={css.categoryIcon}></svg>
+
+              <span className="capitalize">{kitchen && 'Kitchen'}</span>
+            </button>
           </li>
           <li>
-            <svg></svg>
-            <span>beds</span>
+            <button className={css.categoryBtn}>
+              <svg className={css.categoryIcon}></svg>
+              <span>{`${beds} beds`}</span>
+            </button>
           </li>
           <li>
-            <svg></svg>
-            <span>AC</span>
+            <button className={css.categoryBtn}>
+              <svg className={css.categoryIcon}></svg>
+              <span>{airConditioner && 'AC'}</span>
+            </button>
           </li>
         </ul>
       </div>

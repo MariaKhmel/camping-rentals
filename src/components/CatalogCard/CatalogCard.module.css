@@ -1,5 +1,18 @@
 .catalogCard {
   display: flex;
+  align-items: flex-start;
+  width: 840px;
+  gap: 24px;
+}
+
+.cardDescr {
+  display: flex;
+  flex-direction: column;
+}
+.test {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .imgCard {
@@ -7,6 +20,7 @@
   height: 310px;
   border-radius: 10px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .campImg {
   width: 100%;
