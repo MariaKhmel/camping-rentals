@@ -5,6 +5,7 @@ import css from './CatalogCard.module.css';
 import Modal from '../Modal/Modal';
 import ReviewsRating from '../ReviewsRating/ReviewsRating';
 import Location from '../Location/Location';
+import { Outlet } from 'react-router-dom';
 
 const CatalogCard = ({
   ad: {
@@ -63,7 +64,9 @@ const CatalogCard = ({
           price={price}
           gallery={gallery}
           description={description}
-        />
+        >
+          <Outlet />
+        </Modal>
       )}
     </>
   );

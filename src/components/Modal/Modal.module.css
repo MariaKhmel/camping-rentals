@@ -17,11 +17,12 @@
   background: #fff;
   display: flex;
   max-height: 720px;
-  max-width: 680px;
+  max-width: 982px;
   padding: 40px;
   flex-direction: column;
   gap: 24px;
   flex-shrink: 0;
+  overflow-y: auto;
 }
 
 .imageList {

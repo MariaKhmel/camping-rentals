@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import Location from '../Location/Location';
 import ReviewsRating from '../ReviewsRating/ReviewsRating';
 import css from './Modal.module.css';
+import { Suspense } from 'react';
+import { LuLoader } from 'react-icons/lu';
 
 const Modal = ({ name, reviews, location, price, gallery, description }) => {
   return (
@@ -23,7 +25,9 @@ const Modal = ({ name, reviews, location, price, gallery, description }) => {
           </ul>
 
           <p className={css.description}>{description}</p>
-          <Outlet />
+          {/* <Suspense fallback={<LuLoader />}> */}
+          {/* <Outlet /> */}
+          {/* </Suspense> */}
         </div>
       </div>
     </>
