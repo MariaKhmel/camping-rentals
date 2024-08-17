@@ -1,11 +1,16 @@
-import { Outlet } from 'react-router-dom';
 import Location from '../Location/Location';
 import ReviewsRating from '../ReviewsRating/ReviewsRating';
 import css from './Modal.module.css';
-import { Suspense } from 'react';
-import { LuLoader } from 'react-icons/lu';
+import Reviews from '../Reviews/Reviews';
+import Features from '../Features/Features';
+import { useState } from 'react';
 
 const Modal = ({ name, reviews, location, price, gallery, description }) => {
+  const modalNav = ['features', 'reviews'];
+  const [isSelected, setSelected] = useState(null);
+  const handleModalNavClick = e => {
+    console.log(e.target);
+  };
   return (
     <>
       <div className={css.modalOverlay}>
@@ -14,6 +19,7 @@ const Modal = ({ name, reviews, location, price, gallery, description }) => {
             <h2>{name}</h2>
             <ReviewsRating reviews={reviews} />
             <Location location={location} />
+
             <p>{`${price}.00`}</p>
           </div>
           <ul className={css.imageList}>
@@ -25,9 +31,17 @@ const Modal = ({ name, reviews, location, price, gallery, description }) => {
           </ul>
 
           <p className={css.description}>{description}</p>
-          {/* <Suspense fallback={<LuLoader />}> */}
-          {/* <Outlet /> */}
-          {/* </Suspense> */}
+          <p>yes</p>
+          <ul>
+            {modalNav.map(navItem => (
+              <li key={navItem}>
+                {/* <a onClick={handleModalNavClick}>{navItem}</a> */}
+                <button type="button" onClick={handleModalNavClick}>
+                  {navItem}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

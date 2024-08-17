@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { handleSubmit } from '../../services/navigateToCatalog';
 
 const HomePage = () => {
