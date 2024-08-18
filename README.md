@@ -31,12 +31,12 @@ routes within the app are as follows:
 
 1. / - HomePage
 
-The homepage features the app's logo, app bar and the button whoch leads to the
+The homepage features the app's logo, app bar and the button which leads to the
 Catalog Page.
 
 2. /catalog - CatalogPage
 
-The catalog page displayes all available camping vehicles with detailed features
+The catalog page displays all available camping vehicles with detailed features
 and reviews.
 
 3. /favorites - FavoritesPage
@@ -71,8 +71,10 @@ The favorites page allows to view the preferred camping vehicles.
 
 # Back-end
 
-- **MockAPI**: Use mockapi.io for backend. Create a resource with fields like
-  \_id, name, price, rating, etc. Populate with at least 13 diverse listings.
+- **MockAPI**: Used mockapi.io for backend. Created 13 adverts with \_id, name,
+  price, rating, location, adults, children, engine, transmission, form, length,
+  width, height, tank, consumption, description, details, gallery, reviews
+  fields.
 
 ## API
 
