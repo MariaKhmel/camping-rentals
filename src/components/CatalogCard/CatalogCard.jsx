@@ -16,6 +16,9 @@ const CatalogCard = ({ ad }) => {
   };
 
   const closeModal = e => {
+    if (e.code === 'Escape') {
+      setIsModalOpen(false);
+    }
     if (e.target !== e.currentTarget) {
       return;
     }
