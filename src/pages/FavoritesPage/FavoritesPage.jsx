@@ -4,7 +4,7 @@ import FavoritesList from '../../components/FavoritesList/FavoritesList';
 
 const FavoritesPage = () => {
   const favorites = useSelector(selectFavorites);
-  console.log(favorites);
+
   return (
     <>
       {favorites.length > 0 ? (

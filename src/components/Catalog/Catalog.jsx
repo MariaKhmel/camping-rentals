@@ -6,7 +6,6 @@ import {
   selectIsLoading,
 } from '../../redux/selectors';
 import { fetchCatalog } from '../../redux/catalog/operations';
-import CatalogCard from '../CatalogCard/CatalogCard';
 import CatalogList from '../CatalogList/CatalogList';
 
 const Catalog = () => {
