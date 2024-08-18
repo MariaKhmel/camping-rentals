@@ -1,0 +1,15 @@
+.features {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.featuresList {
+  display: flex;
+  width: 430px;
+  height: 200px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}

@@ -4,17 +4,32 @@ import css from './Modal.module.css';
 import Reviews from '../Reviews/Reviews';
 import Features from '../Features/Features';
 import { useState } from 'react';
+import ModalNav from '../ModalNav/ModalNav';
 
-const Modal = ({ name, reviews, location, price, gallery, description }) => {
+const Modal = ({ ad, closeModal }) => {
+  const { name, reviews, location, price, gallery, description } = ad;
   const modalNav = ['features', 'reviews'];
   const [isSelected, setSelected] = useState(null);
+
   const handleModalNavClick = e => {
-    console.log(e.target);
+    setSelected(e.target.value);
   };
+  const OnEscHandleModalClose = e => {
+    if (e.code === 'Escape') {
+      closeModal();
+    }
+    window.removeEventListener('keydown', OnEscHandleModalClose);
+  };
+
+  window.addEventListener('keydown', OnEscHandleModalClose);
+
   return (
     <>
-      <div className={css.modalOverlay}>
+      <div className={css.modalOverlay} onClick={closeModal}>
         <div className={css.modalContent}>
+          <button type="button" onClick={closeModal}>
+            X
+          </button>
           <div>
             <h2>{name}</h2>
             <ReviewsRating reviews={reviews} />
@@ -29,19 +44,16 @@ const Modal = ({ name, reviews, location, price, gallery, description }) => {
               </li>
             ))}
           </ul>
-
           <p className={css.description}>{description}</p>
-          <p>yes</p>
-          <ul>
-            {modalNav.map(navItem => (
-              <li key={navItem}>
-                {/* <a onClick={handleModalNavClick}>{navItem}</a> */}
-                <button type="button" onClick={handleModalNavClick}>
-                  {navItem}
-                </button>
-              </li>
-            ))}
-          </ul>
+          <ModalNav
+            modalNav={modalNav}
+            handleModalNavClick={handleModalNavClick}
+          />
+          {isSelected === 'features' ? (
+            <Features ad={ad} />
+          ) : (
+            <Reviews reviews={reviews} />
+          )}
         </div>
       </div>
     </>

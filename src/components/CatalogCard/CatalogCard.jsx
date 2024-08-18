@@ -4,9 +4,26 @@ import css from './CatalogCard.module.css';
 import Modal from '../Modal/Modal';
 import ReviewsRating from '../ReviewsRating/ReviewsRating';
 import Location from '../Location/Location';
+import { useDispatch } from 'react-redux';
+import { setFavorite } from '../../redux/favorites/favoritesSlice';
 
-const CatalogCard = ({
-  ad: {
+const CatalogCard = ({ ad }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const onFavoriteToggle = e => {
+    console.log(e.currentTarget);
+    dispatch(setFavorite(ad));
+  };
+
+  const {
     name,
     gallery,
     reviews,
@@ -17,11 +34,7 @@ const CatalogCard = ({
     engine,
     details,
     price,
-  },
-}) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-
+  } = ad;
   return (
     <>
       <div className={css.catalogCard}>
@@ -34,7 +47,9 @@ const CatalogCard = ({
             <h2>{name}</h2>
             <div>
               <p>{`${price}.00`}</p>
-              <button type="button">heart svg</button>
+              <button type="button" onClick={onFavoriteToggle}>
+                heart
+              </button>
             </div>
           </div>
           <div>
@@ -54,16 +69,7 @@ const CatalogCard = ({
         </div>
       </div>
 
-      {isModalOpen && (
-        <Modal
-          name={name}
-          reviews={reviews}
-          location={location}
-          price={price}
-          gallery={gallery}
-          description={description}
-        />
-      )}
+      {isModalOpen && <Modal ad={ad} closeModal={closeModal} />}
     </>
   );
 };

@@ -11,24 +11,25 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { catalogReducer } from "./catalog/catalogSlice";
+import { favoritesReducer } from "./favorites/favoritesSlice";
 
 
 
-// const favoritesPersistConfig = {
-//     key: "favorites",
-//     storage,
-//     whitelist: ["data"],
-// };
+const favoritesPersistConfig = {
+    key: "favorites",
+    storage,
+    whitelist: ["favorites"],
+};
 
-// const persistedFavoritesReducer = persistReducer(
-//     favoritesPersistConfig,
-//     favoritesReducer
-// );
+const persistedFavoritesReducer = persistReducer(
+    favoritesPersistConfig,
+    favoritesReducer
+);
 
 export const store = configureStore({
     reducer: {
         campers: catalogReducer,
-        favorites: 'frr',
+        favorites: persistedFavoritesReducer,
     },
 
     middleware: (getDefaultMiddleware) =>

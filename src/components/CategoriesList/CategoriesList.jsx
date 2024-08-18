@@ -1,8 +1,8 @@
 import css from './CategoriesList.module.css';
-import '../../styles/index.css';
+import CategoryButton from '../CategoryButton/CategoryButton';
 
 const CategoriesList = ({
-  details: { beds, kitchen, airConditioner },
+  details: { beds },
   adults,
   transmission,
   engine,
@@ -12,42 +12,26 @@ const CategoriesList = ({
       <div>
         <ul className={css.categoriesList}>
           <li>
-            <button className={css.categoryBtn}>
-              <svg className={css.categoryIcon}></svg>
-              <span>{`${adults} adults`}</span>
-            </button>
+            <CategoryButton value={adults} category="adults" />
           </li>
           <li>
-            <button className={css.categoryBtn}>
-              <svg className={css.categoryIcon}></svg>
-
-              <span className="capitalize">{transmission}</span>
-            </button>
+            <CategoryButton value={transmission} />
+            {/* capitalize */}
           </li>
           <li>
-            <button className={css.categoryBtn}>
-              <svg className={css.categoryIcon}></svg>
-              <span className="capitalize">{engine}</span>
-            </button>
+            <CategoryButton value={engine} />
+            {/* capitalize */}
           </li>
           <li>
-            <button className={css.categoryBtn}>
-              <svg className={css.categoryIcon}></svg>
-
-              <span className="capitalize">{kitchen && 'Kitchen'}</span>
-            </button>
+            <CategoryButton category="Kitchen" />
+            {/* capitalize */}
           </li>
           <li>
-            <button className={css.categoryBtn}>
-              <svg className={css.categoryIcon}></svg>
-              <span>{`${beds} beds`}</span>
-            </button>
+            <CategoryButton value={beds} category="beds" />
           </li>
           <li>
-            <button className={css.categoryBtn}>
-              <svg className={css.categoryIcon}></svg>
-              <span>{airConditioner && 'AC'}</span>
-            </button>
+            <CategoryButton category="AC" />
+            {/* airConditioner */}
           </li>
         </ul>
       </div>

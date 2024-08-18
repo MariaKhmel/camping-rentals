@@ -1,5 +1,19 @@
+import { useSelector } from 'react-redux';
+import { selectFavorites } from '../../redux/selectors';
+import FavoritesList from '../../components/FavoritesList/FavoritesList';
+
 const FavoritesPage = () => {
-  return <>FavoritesPage</>;
+  const favorites = useSelector(selectFavorites);
+  console.log(favorites);
+  return (
+    <>
+      {favorites.length > 0 ? (
+        <FavoritesList favorites={favorites} />
+      ) : (
+        <h1>You haven&apos;t added any favorites.</h1>
+      )}
+    </>
+  );
 };
 
 export default FavoritesPage;
