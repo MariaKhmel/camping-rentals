@@ -16,7 +16,7 @@ const Modal = ({ ad, closeModal }) => {
   };
   const OnEscHandleModalClose = e => {
     if (e.code === 'Escape') {
-      closeModal();
+      closeModal(e);
     }
     setSelected(false);
     window.removeEventListener('keydown', OnEscHandleModalClose);
