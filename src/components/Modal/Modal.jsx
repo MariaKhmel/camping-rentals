@@ -50,13 +50,6 @@ const Modal = ({ ad, closeModal }) => {
             modalNav={modalNav}
             handleModalNavClick={handleModalNavClick}
           />
-          {/* 
-          {isSelected && (isSelected === 'features' ? (
-            <Features ad={ad} />
-          ) : (
-            <Reviews reviews={reviews} />
-          ) } */}
-
           {isSelected &&
             (isSelected === 'features' ? (
               <Features ad={ad} />

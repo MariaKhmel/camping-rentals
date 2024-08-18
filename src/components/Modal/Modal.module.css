@@ -15,7 +15,7 @@
 .modalContent {
   position: relative;
   border-radius: 20px;
-  background: #fff;
+  background: var(--main-white);
   display: flex;
   max-height: 90%;
   max-width: 70%;

@@ -19,19 +19,15 @@ const Features = ({ ad }) => {
           </li>
           <li>
             <CategoryButton value={transmission} />
-            {/* capitalize */}
           </li>
           <li>
             <CategoryButton category="AC" />
-            {/* airConditioner */}
           </li>
           <li>
             <CategoryButton value={engine} />
-            {/* capitalize */}
           </li>
           <li>
             <CategoryButton category="Kitchen" />
-            {/* capitalize */}
           </li>
           <li>
             <CategoryButton value={beds} category="beds" />
