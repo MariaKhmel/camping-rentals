@@ -18,7 +18,7 @@
   background: var(--main-white);
   display: flex;
   max-height: 90%;
-  max-width: 70%;
+  max-width: 982px;
   padding: 40px;
   flex-direction: column;
   gap: 24px;
@@ -30,6 +30,7 @@
 .imageList {
   display: flex;
   gap: 16px;
+  justify-content: center;
 }
 
 .imageItem {
