@@ -1,12 +1,25 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchAdverts } from "../../services/fetchAdverts";
+import { fetchAdvertsByPage, fetchAll } from "../../services/fetchAdverts";
+
+export const fetchCatalogByPage = createAsyncThunk(
+    "catalog/fetchAdvertsByPage",
+
+    async (page, thunkAPI) => {
+        try {
+            const response = await fetchAdvertsByPage(page);
+            return response.data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.message);
+        }
+    }
+);
 
 export const fetchCatalog = createAsyncThunk(
-    "catalog/fetchAll",
+    "catalog/fetchAllAdverts",
 
     async (_, thunkAPI) => {
         try {
-            const response = await fetchAdverts();
+            const response = await fetchAll();
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);

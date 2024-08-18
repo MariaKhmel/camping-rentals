@@ -2,5 +2,6 @@ export const catalogInitialState = {
     adverts: [],
     isLoading: false,
     error: null,
-    // isNextPage: true,
+    page: 1,
+    totalPages: 1,
 };
