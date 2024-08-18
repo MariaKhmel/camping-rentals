@@ -1,21 +1,31 @@
 import { TbCamper } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
+import clsx from 'clsx';
+import css from './AppBar.module.css';
+
 const AppBar = () => {
+  const isLinkActive = ({ isActive }) => {
+    return clsx(css.navLink, isActive && css.active);
+  };
   return (
     <>
-      <header>
-        <p>
-          <span>
-            <TbCamper />
-          </span>{' '}
+      <header className={css.header}>
+        <a className={css.logo} href="/">
+          <TbCamper />
           Camping rentals
-        </p>
+        </a>
 
         <nav>
-          <ul>
-            <NavLink to="/">HomePage</NavLink>
-            <NavLink to="/catalog">Catalog</NavLink>
-            <NavLink to="/favorites">Favorites</NavLink>
+          <ul className={css.navList}>
+            <NavLink to="/" className={isLinkActive}>
+              HomePage
+            </NavLink>
+            <NavLink to="/catalog" className={isLinkActive}>
+              Catalog
+            </NavLink>
+            <NavLink to="/favorites" className={isLinkActive}>
+              Favorites
+            </NavLink>
           </ul>
         </nav>
       </header>

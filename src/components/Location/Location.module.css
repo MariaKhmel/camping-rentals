@@ -1,5 +1,9 @@
 .locationIcon {
   width: 16px;
   height: 16px;
-  stroke: rgba(16, 24, 40, 1);
+  /* stroke: rgba(16, 24, 40, 1); */
 }
+
+/* .locationIcon {
+  fill: blanchedalmond;
+} */

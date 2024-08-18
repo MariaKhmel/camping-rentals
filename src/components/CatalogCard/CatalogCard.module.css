@@ -1,13 +1,17 @@
 .catalogCard {
   display: flex;
   align-items: flex-start;
-  width: 840px;
+  width: 100%;
+  padding: 24px;
   gap: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
 }
 
 .cardDescr {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 .saleBlock {
   display: flex;
@@ -15,8 +19,21 @@
   align-items: center;
 }
 
+.infoBlock {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.favoriteBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .imgCard {
-  width: 290px;
+  max-width: 290px;
   height: 310px;
   border-radius: 10px;
   overflow: hidden;
@@ -33,5 +50,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 525px;
+  max-width: 525px;
+}
+.cardBtn {
+  display: inline-flex;
+  align-self: start;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: var(--accent-basic);
+  color: var(--main-white);
+  border: none;
+}
+.cardBtn:hover,
+.cardBtn:focus {
+  background: var(--accent-hover);
 }

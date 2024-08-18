@@ -14,12 +14,14 @@ const CatalogCard = ({ ad }) => {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = e => {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
     setIsModalOpen(false);
   };
 
-  const onFavoriteToggle = e => {
-    console.log(e.currentTarget);
+  const onFavoriteToggle = () => {
     dispatch(setFavorite(ad));
   };
 
@@ -45,14 +47,14 @@ const CatalogCard = ({ ad }) => {
         <div className={css.cardDescr}>
           <div className={css.saleBlock}>
             <h2>{name}</h2>
-            <div>
+            <div className={css.favoriteBlock}>
               <p>{`${price}.00`}</p>
               <button type="button" onClick={onFavoriteToggle}>
                 heart
               </button>
             </div>
           </div>
-          <div>
+          <div className={css.infoBlock}>
             <ReviewsRating reviews={reviews} />
             <Location location={location} />
           </div>
@@ -63,7 +65,7 @@ const CatalogCard = ({ ad }) => {
             transmission={transmission}
             engine={engine}
           />
-          <button type="button" onClick={openModal}>
+          <button type="button" onClick={openModal} className={css.cardBtn}>
             Show more
           </button>
         </div>

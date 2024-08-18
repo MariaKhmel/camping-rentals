@@ -13,37 +13,57 @@
 }
 
 .modalContent {
+  position: relative;
   border-radius: 20px;
   background: #fff;
   display: flex;
-  max-height: 720px;
-  max-width: 982px;
+  max-height: 90%;
+  max-width: 70%;
   padding: 40px;
   flex-direction: column;
   gap: 24px;
-  flex-shrink: 0;
-  overflow-y: auto;
+  overflow: auto;
+  clip-path: inset(0 round 10px);
+  z-index: 1001;
 }
 
 .imageList {
   display: flex;
-  align-items: flex-start;
   gap: 16px;
 }
 
 .imageItem {
   width: 290px;
   height: 310px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .modalImg {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .description {
-  /* color: var(--Gray-600, #475467); */
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   width: 100%;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: inherit;
+  font-weight: 700;
 }

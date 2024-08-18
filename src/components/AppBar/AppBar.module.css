@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 50px;
+  border-bottom: 2px solid var(--main-black);
+}
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+}
+.navLink {
+  padding: 5px;
+  font-weight: 700;
+}
+
+.navLink:hover,
+.navLink:focus,
+.navLink:active {
+  color: var(--accent-basic);
+}
+
+.active {
+  color: var(--accent-basic);
+}

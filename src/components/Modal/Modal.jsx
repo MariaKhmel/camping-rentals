@@ -9,7 +9,7 @@ import ModalNav from '../ModalNav/ModalNav';
 const Modal = ({ ad, closeModal }) => {
   const { name, reviews, location, price, gallery, description } = ad;
   const modalNav = ['features', 'reviews'];
-  const [isSelected, setSelected] = useState(null);
+  const [isSelected, setSelected] = useState(false);
 
   const handleModalNavClick = e => {
     setSelected(e.target.value);
@@ -18,6 +18,7 @@ const Modal = ({ ad, closeModal }) => {
     if (e.code === 'Escape') {
       closeModal();
     }
+    setSelected(false);
     window.removeEventListener('keydown', OnEscHandleModalClose);
   };
 
@@ -26,8 +27,8 @@ const Modal = ({ ad, closeModal }) => {
   return (
     <>
       <div className={css.modalOverlay} onClick={closeModal}>
-        <div className={css.modalContent}>
-          <button type="button" onClick={closeModal}>
+        <div className={css.modalContent} id="modalContent">
+          <button type="button" onClick={closeModal} className={css.closeBtn}>
             X
           </button>
           <div>
@@ -49,11 +50,19 @@ const Modal = ({ ad, closeModal }) => {
             modalNav={modalNav}
             handleModalNavClick={handleModalNavClick}
           />
-          {isSelected === 'features' ? (
+          {/* 
+          {isSelected && (isSelected === 'features' ? (
             <Features ad={ad} />
           ) : (
             <Reviews reviews={reviews} />
-          )}
+          ) } */}
+
+          {isSelected &&
+            (isSelected === 'features' ? (
+              <Features ad={ad} />
+            ) : (
+              <Reviews reviews={reviews} />
+            ))}
         </div>
       </div>
     </>
