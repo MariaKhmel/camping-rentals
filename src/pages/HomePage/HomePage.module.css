@@ -12,12 +12,13 @@
   justify-content: center;
   align-items: center;
   border-radius: 200px;
-  background: var(--accent-basic);
+  background-color: var(--accent-basic);
   color: var(--main-white);
   border: none;
+  transition: background-color var(--transition-setting);
 }
 
 .homeBtn:hover,
 .homeBtn:focus {
-  background: var(--accent-hover);
+  background-color: var(--accent-hover);
 }

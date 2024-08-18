@@ -17,15 +17,21 @@ const AppBar = () => {
 
         <nav>
           <ul className={css.navList}>
-            <NavLink to="/" className={isLinkActive}>
-              HomePage
-            </NavLink>
-            <NavLink to="/catalog" className={isLinkActive}>
-              Catalog
-            </NavLink>
-            <NavLink to="/favorites" className={isLinkActive}>
-              Favorites
-            </NavLink>
+            <li>
+              <NavLink to="/" className={isLinkActive}>
+                HomePage
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/catalog" className={isLinkActive}>
+                Catalog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/favorites" className={isLinkActive}>
+                Favorites
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

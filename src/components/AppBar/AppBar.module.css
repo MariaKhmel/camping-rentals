@@ -21,6 +21,7 @@
 .navLink {
   padding: 5px;
   font-weight: 700;
+  transition: color var(--transition-setting);
 }
 
 .navLink:hover,

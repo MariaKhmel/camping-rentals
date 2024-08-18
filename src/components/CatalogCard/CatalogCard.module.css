@@ -60,20 +60,26 @@
   align-items: center;
   gap: 10px;
   border-radius: 200px;
-  background: var(--accent-basic);
+  background-color: var(--accent-basic);
   color: var(--main-white);
   border: none;
+  transition: color var(--transition-setting),
+    background-color var(--transition-setting);
 }
 .cardBtn:hover,
 .cardBtn:focus {
-  background: var(--accent-hover);
+  background-color: var(--accent-hover);
 }
 
-.favoritesIcon {
-  width: 24px;
-  height: 24px;
-}
 .favoritesBtn {
   border: none;
   background-color: var(--main-white);
+  width: 24px;
+  height: 24px;
+  transition: color var(--transition-setting);
+}
+
+.favoritesBtn:hover,
+.favoritesBtn:focus {
+  background-color: var(--accent-hover);
 }
