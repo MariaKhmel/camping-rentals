@@ -27,7 +27,11 @@ const catalogSlice = createSlice({
             })
             .addCase(fetchCatalogByPage.fulfilled, (state, action) => {
                 state.error = null;
-                state.adverts = [...state.adverts, ...action.payload]
+                if (state.page === 1) {
+                    state.adverts = action.payload;
+                } else {
+                    state.adverts = [...state.adverts, ...action.payload];
+                }
                 state.isLoading = false;
             })
             .addCase(fetchCatalogByPage.rejected, (state, action) => {

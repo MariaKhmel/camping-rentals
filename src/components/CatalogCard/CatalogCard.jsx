@@ -10,6 +10,7 @@ import { setFavorite } from '../../redux/favorites/favoritesSlice';
 const CatalogCard = ({ ad }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -37,6 +38,7 @@ const CatalogCard = ({ ad }) => {
     details,
     price,
   } = ad;
+
   return (
     <>
       <div className={css.catalogCard}>
@@ -49,8 +51,12 @@ const CatalogCard = ({ ad }) => {
             <h2>{name}</h2>
             <div className={css.favoriteBlock}>
               <p>{`${price}.00`}</p>
-              <button type="button" onClick={onFavoriteToggle}>
-                heart
+              <button
+                type="button"
+                onClick={onFavoriteToggle}
+                className={css.favoritesBtn}
+              >
+                ♥
               </button>
             </div>
           </div>

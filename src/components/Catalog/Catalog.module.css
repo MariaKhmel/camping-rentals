@@ -1,0 +1,14 @@
+.loadMoreBtn {
+  display: inline-flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  border: 1px rgba(71, 84, 103, 0.2);
+}
+.catalogWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

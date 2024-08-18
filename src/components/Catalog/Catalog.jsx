@@ -1,3 +1,4 @@
+import css from './Catalog.module.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -38,14 +39,19 @@ const Catalog = () => {
     <>
       {isLoading && <p>Loading...</p>}
       {isError && <p>Error</p>}
-      {adverts.length > 0 && <CatalogList adverts={adverts} />}
-      <button
-        type="button"
-        onClick={handleLoadMoreClick}
-        disabled={totalPages === page}
-      >
-        Load More
-      </button>
+      <div className={css.catalogWrapper}>
+        {adverts.length > 0 && <CatalogList adverts={adverts} />}
+        <div className={css.btnWrapper}>
+          <button
+            type="button"
+            onClick={handleLoadMoreClick}
+            disabled={totalPages === page}
+            className={css.loadMoreBtn}
+          >
+            Load More
+          </button>
+        </div>
+      </div>
     </>
   );
 };

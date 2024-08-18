@@ -68,3 +68,12 @@
 .cardBtn:focus {
   background: var(--accent-hover);
 }
+
+.favoritesIcon {
+  width: 24px;
+  height: 24px;
+}
+.favoritesBtn {
+  border: none;
+  background-color: var(--main-white);
+}

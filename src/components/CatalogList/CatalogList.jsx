@@ -2,7 +2,6 @@ import css from './CatalogList.module.css';
 import CatalogCard from '../CatalogCard/CatalogCard';
 
 const CatalogList = ({ adverts }) => {
-  console.log(adverts);
   return (
     <div>
       <ul className={css.catalogList}>
