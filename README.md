@@ -1,4 +1,4 @@
-# project-NoLimits88 - AquaTrack
+# MariaKhmel - Camping Rentals
 
 Camping Rentals is an application designed to make renting camping vehicles easy
 and convenient.
